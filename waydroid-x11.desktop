@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Waydroid X11
+Exec=waydroid-x11
+Icon=waydroid
+Categories=X-WayDroid-App;

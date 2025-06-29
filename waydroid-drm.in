@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+trap 'exit $?' INT QUIT TERM
+trap 'waydroid session stop' EXIT
+weston --backend=drm -c '@pkgdatadir@/weston.ini' "$@" -- waydroid show-full-ui
