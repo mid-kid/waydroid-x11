@@ -1,12 +1,22 @@
 applicationsdir = $(datadir)/applications
 waylandsessionsdir = $(datadir)/wayland-sessions
 
-bin_SCRIPTS = waydroid-x11 waydroid-drm
+bin_SCRIPTS =
+dist_applications_DATA =
+dist_waylandsessions_DATA =
 dist_pkgdata_DATA = weston.ini
-dist_applications_DATA = waydroid-x11.desktop
-dist_waylandsessions_DATA = waydroid-drm.desktop
 CLEANFILES = $(subst_files)
 EXTRA_DIST = waydroid-x11.in waydroid-drm.in
+
+if ENABLE_X11
+bin_SCRIPTS += waydroid-x11
+dist_applications_DATA += waydroid-x11.desktop
+endif
+
+if ENABLE_DRM
+bin_SCRIPTS += waydroid-drm
+dist_waylandsessions_DATA += waydroid-drm.desktop
+endif
 
 do_subst = sed \
 	-e 's,[@]pkgdatadir[@],$(pkgdatadir),g'
