@@ -6,5 +6,8 @@
 /config.log
 /config.status
 /configure
+/configure~
 /waydroid-drm
+/waydroid-drm.1
 /waydroid-x11
+/waydroid-x11.1

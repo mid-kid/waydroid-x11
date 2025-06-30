@@ -1,0 +1,29 @@
+.TH WAYDROID-DRM "1" "June 2025" "@PACKAGE_NAME@ @PACKAGE_VERSION@"
+.SH NAME
+waydroid-drm - Launch a standalone Waydroid session
+.SH SYNOPSIS
+.B waydroid-drm
+[\fI\,OPTION\/\fR]...
+.SH DESCRIPTION
+Helper script to launch Waydroid within a Weston compositor, running standalone. This allows you to log into an Android session, as if it were the running operating system. Unlike
+.BR waydroid-x11 ,
+this supports better multitouch and gestures.
+
+You can launch it as
+.B waydroid-drm
+from within a console, or from a Display/Login Manager, such as SDDM.
+
+Press CTRL+ALT+BACKSPACE to close the session.
+.SH BUGS
+Setting up audio requires a pulseaudio server to be available. Its availability is verified by using the
+.B pacmd info
+command. If it's not available (e.g. set up by an init system), the script will attempt to start one, using pipewire(-pulse) if available, otherwise with pulseaudio.
+
+If you get no audio, the audio server chosen may have its primary output muted. Try setting it up first.
+
+If the audio server isn't available, and the script has failed to launch one, the Waydroid window may never launch.
+
+When a system has multiple monitors, Waydroid will only be launched on one of them.
+.SH "SEE ALSO"
+.BR weston (1),
+.BR weston.ini (5)

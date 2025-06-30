@@ -1,0 +1,21 @@
+.TH WAYDROID-X11 "1" "June 2025" "@PACKAGE_NAME@ @PACKAGE_VERSION@"
+.SH NAME
+waydroid-x11 - Launch a Waydroid session in X11
+.SH SYNOPSIS
+.B waydroid-x11
+[\fI\,OPTION\/\fR]...
+.SH DESCRIPTION
+Helper script to launch Waydroid within a Weston compositor, running inside an X11 session. This is useful when Waydroid itself doesn't support it at this time.
+
+Additional options can be given to the script, which will be passed to the weston compositor. As such, one can execute:
+.IP
+waydroid-x11 --width=720 --height=1080
+.PP
+To change the resolution of the compositor.
+.SH BUGS
+Resizing the Weston window will crash Waydroid. While it may boot up again automatically, this isn't reliable.
+
+A 2 second delay is added between opening Weston and launching Waydroid. This allows someone to maximize the window before Waydroid launches.
+.SH "SEE ALSO"
+.BR weston (1),
+.BR weston.ini (5)
