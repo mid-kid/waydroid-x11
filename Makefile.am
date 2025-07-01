@@ -3,9 +3,9 @@ waylandsessionsdir = $(datadir)/wayland-sessions
 
 bin_SCRIPTS =
 man_MANS =
+dist_pkgdata_DATA =
 dist_applications_DATA =
 dist_waylandsessions_DATA =
-dist_pkgdata_DATA = waydroid-x11.ini waydroid-drm.ini
 CLEANFILES = $(subst_files)
 EXTRA_DIST = \
 	waydroid-x11.in waydroid-x11.1.in \
@@ -14,12 +14,14 @@ EXTRA_DIST = \
 if ENABLE_X11
 bin_SCRIPTS += waydroid-x11
 man_MANS += waydroid-x11.1
+dist_pkgdata_DATA += waydroid-x11.ini
 dist_applications_DATA += waydroid-x11.desktop
 endif
 
 if ENABLE_DRM
 bin_SCRIPTS += waydroid-drm
 man_MANS += waydroid-drm.1
+dist_pkgdata_DATA += waydroid-drm.ini
 dist_waylandsessions_DATA += waydroid-drm.desktop
 endif
 

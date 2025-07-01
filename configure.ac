@@ -1,5 +1,5 @@
 AC_PREREQ([2.69])
-AC_INIT([waydroid-x11], [1.0.1])
+AC_INIT([waydroid-x11], [1.0.2])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([1.16.2 foreign])
 AC_ARG_ENABLE([x11], [AS_HELP_STRING([--disable-x11],
