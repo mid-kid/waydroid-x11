@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-t="$(mktemp -t waydroid-x11.XXXXXXXXXX)"
+t="$(mktemp -t waydroid-drm.XXXXXXXXXX)"
 cat "${XDG_CONFIG_HOME:-$HOME/.config}/waydroid-drm.ini" >> "$t" || true
 cat '@pkgdatadir@/waydroid-drm.ini' >> "$t"
 

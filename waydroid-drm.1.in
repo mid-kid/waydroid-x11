@@ -14,6 +14,11 @@ You can launch it as
 from within a console, or from a Display/Login Manager, such as SDDM.
 
 Press CTRL+ALT+BACKSPACE to close the session.
+.SH CONFIGURATION
+The weston compositor can be configured through
+.BR $XDG_CONFIG_HOME/waydroid-drm.ini .
+This file follows the same syntax as
+.BR weston.ini (5).
 .SH BUGS
 Setting up audio requires a pulseaudio server to be available. Its availability is verified by using the
 .B pacmd info
