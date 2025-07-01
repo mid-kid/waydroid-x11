@@ -3,4 +3,4 @@ set -eu
 
 trap 'exit $?' INT QUIT TERM
 trap 'waydroid session stop' EXIT
-weston --backend=x11 --width=450 --height=800 -c '@pkgdatadir@/weston.ini' "$@" -- /bin/sh -c 'sleep 2 && exec waydroid show-full-ui'
+weston --backend=x11 --width=450 --height=800 -c '@pkgdatadir@/weston.ini' "$@" -- /bin/sh -c 'sleep 2 && exec waydroid first-launch'
