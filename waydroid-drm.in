@@ -5,7 +5,7 @@ pids=''
 trap 'exit $?' INT QUIT TERM
 trap 'waydroid session stop; pkill -P $$ $pids' EXIT
 
-if command -v pacmd > /dev/null && ! pacmd info 2>&1 > /dev/null; then
+if command -v pactl > /dev/null && ! pactl info 2>&1 > /dev/null; then
     if command -v pipewire > /dev/null; then
         pw_sock="${XDG_RUNTIME_DIR:-/run/pipewire}/pipewire-0"
         if [ ! -S "$pw_sock" ]; then
