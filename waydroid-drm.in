@@ -1,9 +1,13 @@
 #!/bin/sh
 set -eu
 
+t="$(mktemp -t waydroid-x11.XXXXXXXXXX)"
+cat "${XDG_CONFIG_HOME:-$HOME/.config}/waydroid-drm.ini" >> "$t" || true
+cat '@pkgdatadir@/waydroid-drm.ini' >> "$t"
+
 pids=''
 trap 'exit $?' INT QUIT TERM
-trap 'waydroid session stop; pkill -P $$ $pids' EXIT
+trap 'waydroid session stop; rm -f $t; pkill -P $$ $pids' EXIT
 
 if command -v pactl > /dev/null && ! pactl info 2>&1 > /dev/null; then
     if command -v pipewire > /dev/null; then
@@ -21,4 +25,4 @@ if command -v pactl > /dev/null && ! pactl info 2>&1 > /dev/null; then
     fi
 fi
 
-dbus-launch weston --backend=drm -c '@pkgdatadir@/weston.ini' "$@" -- waydroid first-launch
+dbus-launch weston -c "$t" "$@" -- waydroid first-launch

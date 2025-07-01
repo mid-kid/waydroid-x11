@@ -5,7 +5,7 @@ bin_SCRIPTS =
 man_MANS =
 dist_applications_DATA =
 dist_waylandsessions_DATA =
-dist_pkgdata_DATA = weston.ini
+dist_pkgdata_DATA = waydroid-x11.ini waydroid-drm.ini
 CLEANFILES = $(subst_files)
 EXTRA_DIST = \
 	waydroid-x11.in waydroid-x11.1.in \

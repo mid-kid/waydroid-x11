@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+t="$(mktemp -t waydroid-x11.XXXXXXXXXX)"
+cat "${XDG_CONFIG_HOME:-$HOME/.config}/waydroid-x11.ini" >> "$t" || true
+cat '@pkgdatadir@/waydroid-x11.ini' >> "$t"
+
 trap 'exit $?' INT QUIT TERM
-trap 'waydroid session stop' EXIT
-weston --backend=x11 --width=450 --height=800 -c '@pkgdatadir@/weston.ini' "$@" -- /bin/sh -c 'sleep 2 && exec waydroid first-launch'
+trap 'waydroid session stop; rm -f $t' EXIT
+weston -c "$t" "$@" -- /bin/sh -c 'sleep 2 && exec waydroid first-launch'
