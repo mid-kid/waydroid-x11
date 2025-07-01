@@ -28,6 +28,8 @@ Usage
 
 Waydroid X11 should appear in your applications menu. Launch it and start using Waydroid!
 
+To launch waydroid with a different screen resolution, use `waydroid-x11 --width=720 --height=1080`, changing the numbers to fit.
+
 More information, bugs, etc
 ---------------------------
 
